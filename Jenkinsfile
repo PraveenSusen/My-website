@@ -15,20 +15,12 @@ pipeline {
 
         stage('Deploy Website') {
             steps {
-
-                withCredentials([
-                    sshUserPrivateKey(
-                        credentialsId: 'ec2-key',
-                        keyFileVariable: 'SSH_KEY',
-                        usernameVariable: 'SSH_USER'
-                    )
-                ]) {
+                sshagent(credentials: ['ec2-key']) {
 
                     bat '''
-                    scp -i "%SSH_KEY%" -o StrictHostKeyChecking=no *.html %SSH_USER%@%EC2_HOST%:/tmp/
-                    scp -i "%SSH_KEY%" -o StrictHostKeyChecking=no *.css %SSH_USER%@%EC2_HOST%:/tmp/
+                    scp -o StrictHostKeyChecking=no index.html ubuntu@%EC2_HOST%:/tmp/
 
-                    ssh -i "%SSH_KEY%" -o StrictHostKeyChecking=no %SSH_USER%@%EC2_HOST% "sudo cp /tmp/*.html /var/www/html/ && sudo cp /tmp/*.css /var/www/html/"
+                    ssh -o StrictHostKeyChecking=no ubuntu@%EC2_HOST% "sudo cp /tmp/index.html /var/www/html/index.html"
                     '''
                 }
             }
