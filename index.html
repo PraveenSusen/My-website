@@ -1,0 +1,491 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Praveen | DevOps Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #08111f;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 8%;
+      background: rgba(8, 17, 31, 0.95);
+      border-bottom: 1px solid #1f2937;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #38bdf8;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav a {
+      color: #d1d5db;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px;
+      background:
+        radial-gradient(circle at top right, #12395a 0, transparent 35%),
+        radial-gradient(circle at bottom left, #102a43 0, transparent 30%),
+        #08111f;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 16px;
+      margin-bottom: 22px;
+      border: 1px solid #38bdf8;
+      border-radius: 30px;
+      color: #38bdf8;
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .hero h1 span {
+      color: #38bdf8;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 19px;
+      color: #9ca3af;
+    }
+
+    .buttons {
+      margin-top: 35px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 25px;
+      margin: 6px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .primary {
+      background: #38bdf8;
+      color: #08111f;
+    }
+
+    .secondary {
+      border: 1px solid #374151;
+      color: white;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    section {
+      padding: 90px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #9ca3af;
+    }
+
+    .about {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+      color: #b6bec9;
+      font-size: 17px;
+    }
+
+    .skills-section {
+      background: #0b1526;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .skill-card {
+      background: #111c2f;
+      padding: 28px;
+      border: 1px solid #1f3048;
+      border-radius: 14px;
+      transition: 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-7px);
+      border-color: #38bdf8;
+      box-shadow: 0 12px 35px rgba(56, 189, 248, 0.08);
+    }
+
+    .skill-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 18px;
+      border-radius: 10px;
+      background: #172b42;
+      font-size: 24px;
+    }
+
+    .skill-card h3 {
+      color: #38bdf8;
+      margin-bottom: 10px;
+    }
+
+    .skill-card p {
+      color: #9ca3af;
+      font-size: 14px;
+    }
+
+    .tools {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .tool {
+      padding: 12px 20px;
+      background: #111c2f;
+      border: 1px solid #26364d;
+      border-radius: 8px;
+      color: #d1d5db;
+      transition: 0.3s;
+    }
+
+    .tool:hover {
+      border-color: #38bdf8;
+      color: #38bdf8;
+    }
+
+    .project {
+      max-width: 900px;
+      margin: auto;
+      padding: 35px;
+      background: #111c2f;
+      border: 1px solid #1f3048;
+      border-radius: 16px;
+    }
+
+    .project h3 {
+      font-size: 24px;
+      color: #38bdf8;
+      margin-bottom: 15px;
+    }
+
+    .project p {
+      color: #aab3c0;
+      margin-bottom: 18px;
+    }
+
+    .project-tags span {
+      display: inline-block;
+      padding: 6px 12px;
+      margin: 5px;
+      background: #172b42;
+      color: #7dd3fc;
+      border-radius: 20px;
+      font-size: 13px;
+    }
+
+    .contact {
+      text-align: center;
+      background: #0b1526;
+    }
+
+    .contact p {
+      color: #9ca3af;
+      margin: 15px auto 25px;
+      max-width: 600px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      border-top: 1px solid #1f2937;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      nav ul {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero {
+        min-height: 80vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">PS.</div>
+
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#project">Project</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="hero-content">
+
+    <div class="badge">☁️ DevOps & AWS Learner</div>
+
+    <h1>
+      Hi, I'm <span>Praveen</span><br>
+      Building in the Cloud.
+    </h1>
+
+    <p>
+      DevOps enthusiast learning AWS, Linux, Git, Jenkins and cloud
+      infrastructure through hands-on projects and practical deployments.
+    </p>
+
+    <div class="buttons">
+      <a href="#skills" class="btn primary">Explore My Skills</a>
+      <a href="#project" class="btn secondary">View Project</a>
+    </div>
+
+  </div>
+</header>
+
+<section id="about">
+
+  <div class="section-title">
+    <h2>About Me</h2>
+    <p>Learning, building and deploying.</p>
+  </div>
+
+  <div class="about">
+    <p>
+      I am an aspiring DevOps Engineer with an interest in cloud computing
+      and automation. I am building practical experience with Amazon Web
+      Services, Linux servers, version control, CI/CD tools and cloud
+      infrastructure. My goal is to build reliable and scalable systems
+      while continuously improving my DevOps skills.
+    </p>
+  </div>
+
+</section>
+
+<section id="skills" class="skills-section">
+
+  <div class="section-title">
+    <h2>Skills</h2>
+    <p>Technologies I am currently learning and practicing.</p>
+  </div>
+
+  <div class="skills-grid">
+
+    <div class="skill-card">
+      <div class="skill-icon">☁️</div>
+      <h3>AWS</h3>
+      <p>
+        EC2, S3, IAM, EBS, Snapshots, AMIs, Elastic IP
+        and Security Groups.
+      </p>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-icon">🐧</div>
+      <h3>Linux</h3>
+      <p>
+        Linux commands, file permissions, services,
+        package management and server administration.
+      </p>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-icon">⚙️</div>
+      <h3>CI/CD</h3>
+      <p>
+        Learning Jenkins for build automation,
+        continuous integration and deployment.
+      </p>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-icon">🔀</div>
+      <h3>Git</h3>
+      <p>
+        Source control using Git, repositories,
+        commits, branches and remote repositories.
+      </p>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-icon">📦</div>
+      <h3>Containers</h3>
+      <p>
+        Learning Docker concepts including images,
+        containers and containerized applications.
+      </p>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-icon">🏗️</div>
+      <h3>Infrastructure</h3>
+      <p>
+        Building knowledge of Terraform and
+        Infrastructure as Code concepts.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="tools">
+
+  <div class="section-title">
+    <h2>Tools & Technologies</h2>
+    <p>My DevOps learning stack.</p>
+  </div>
+
+  <div class="tools">
+    <div class="tool">Amazon AWS</div>
+    <div class="tool">Linux</div>
+    <div class="tool">Git</div>
+    <div class="tool">GitHub</div>
+    <div class="tool">Jenkins</div>
+    <div class="tool">Docker</div>
+    <div class="tool">Terraform</div>
+    <div class="tool">Nginx</div>
+    <div class="tool">Apache</div>
+    <div class="tool">Tomcat</div>
+  </div>
+
+</section>
+
+<section id="project" class="skills-section">
+
+  <div class="section-title">
+    <h2>Featured Project</h2>
+    <p>A hands-on AWS cloud project.</p>
+  </div>
+
+  <div class="project">
+
+    <h3>☁️ Static Website Hosting on Amazon S3</h3>
+
+    <p>
+      Created and deployed a static website using Amazon S3.
+      Configured an S3 bucket, uploaded website files, enabled
+      static website hosting and configured the required access
+      permissions to make the website available through the
+      S3 website endpoint.
+    </p>
+
+    <div class="project-tags">
+      <span>AWS</span>
+      <span>Amazon S3</span>
+      <span>IAM</span>
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>Cloud</span>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="contact">
+
+  <div class="section-title">
+    <h2>Let's Connect</h2>
+  </div>
+
+  <p>
+    I'm currently developing my DevOps and AWS skills through
+    practical cloud projects and continuous learning.
+  </p>
+
+</section>
+
+<footer>
+  © 2026 Praveen • DevOps Portfolio • Hosted on Amazon S3
+</footer>
+
+</body>
+</html>
